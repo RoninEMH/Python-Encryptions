@@ -59,15 +59,11 @@ def decrypt(etext, filename):
     temp = list(etext)
 
     for i in range(len(etext)):
+        if temp[i] not in list(string.ascii_letters):
+            continue
+
         temp[i] = otherDic[etext[i]]
 
     return "".join(temp)
 
 
-"""
-so = "abcdxyz"
-print("original text: " + so)
-eso = encrypt(so, "filename1.txt")
-print("encrypt text: " + eso)
-print("real text: " + decrypt(eso, "filename1.txt"))
-"""
