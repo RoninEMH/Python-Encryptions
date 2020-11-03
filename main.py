@@ -46,7 +46,8 @@ def createEncryptFile(root):
 
 def createDecryptFile(root):
     content = root.winfo_children()[1]
-    etext = root.content.get("1.0", END)
+
+    etext = content.get("1.0", END)
 
     file_path = filedialog.askopenfilename(filetypes=[("text files", "*.txt")],
                                            initialdir=str(os.getcwd() + "/./Dictionaries"))
@@ -54,7 +55,7 @@ def createDecryptFile(root):
     content.configure(state="normal")
     content.delete("1.0", END)
     content.insert(END, text)
-    root.content.configure(state="disabled")
+    content.configure(state="disabled")
 
 
 def openNewWindow():
